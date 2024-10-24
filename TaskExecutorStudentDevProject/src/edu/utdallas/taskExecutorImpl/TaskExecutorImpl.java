@@ -15,7 +15,7 @@ public class TaskExecutorImpl implements TaskExecutor
 		workerThreads = new Thread [threadPoolSize]; //create n space for thread pool
 
 		for(int i = 0; i<threadPoolSize; i++){ //iterate over threadpool
-			workerThreads[i] = new Thread(new TaskRunner(taskQueue)); //create new thread and  fetch task
+			workerThreads[i] = new Thread(new TaskRunner(taskQueue)); //create new thread and fetch task
 			workerThreads[i].start(); //start thread
 		}
 	}
