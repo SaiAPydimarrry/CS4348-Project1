@@ -14,15 +14,15 @@ public class TaskRunner implements Runnable {
   public void run(){
     while(true){
       try{
-        Task task = taskQueue.take() //take task if avaliable, block if no tasks in queue
-        task.execute(); 
+        Task task = taskQueue.take(); //take task if avaliable, block if no tasks in queue
+        task.execute();
       }catch(InterruptedException e){
         Thread.currentThread().interrupt();
-			  break;
-      }catch(Throwable th){
-        System.err.println("Task execution failed: " + th.getMessage());
-        th.printStackTrace(); 
-      }
+        break;
+      } catch(Throwable th){
+          System.err.println("Task execution failed: " + th.getMessage());
+          th.printStackTrace(); 
+        }
     }
   }
 }
